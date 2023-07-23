@@ -58,9 +58,7 @@ move_uploaded_file($imagen_temporal,"assets/".$imagen);
     <main>   
             <div class="container-fuid">
                 <div class="container col-sm-12 col-md-9 fst-italic">
-                    <div>
-<p class="lead mx-5">galeria</p>
-                    </div>
+                    <p class="lead mx-5">Carga de Proyectos</p>
                     <hr class="my-2">
                 <div class="container">
             </div>
@@ -98,46 +96,8 @@ move_uploaded_file($imagen_temporal,"assets/".$imagen);
                 </div> 
             </div>
         </div>
-    </div>    
-    <!--======================================================================================================-->
-    <!--================== == == == == V I S T A   D E  P R O Y E C T O S == == == == ==========================-->
-    <!--=======================================================================================================-->  
-
-    <div class="carga my-3 row">
-        <div class="card-header">
-            Edición de Proyectos
-       </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-10 col-sm-6">
-                <table class="table tabla__galeria bg-light">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Imagen</th>
-                            <th>Descripcion</th>
-                            <th>Eliminar</th>
-                            <th>Modificar</th>
-                        </tr>
-                    </thead>
-                    <tbody >    
-                        <?php #leemos proyectos 1 por 1
-                            foreach($proyectos as $proyecto){ ?>
-                        <tr >
-                            <td><?php echo $proyecto['nombre'];?></td>
-                            <td> <img width="200" src="./assets/<?php echo $proyecto['imagen'];?>" alt="">  </td>
-                            <td class="texto"><?php echo $proyecto['descripcion'];?></td>
-                            <td><a name="eliminar" id="eliminar" class="btn btn-danger" href="?borrar=<?php echo $proyecto['id'];?>">Eliminar</a></td>
-                            <td><a name="modificar" id="modificar" class="btn btn-warning" href="?modificar=<?php echo $proyecto['id'];?>">Modificar</a></td>
-                        </tr>
-                        <?php #cerramos la llave del foreach
-                        } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
-
-    </main>
+</main>
     <!--======================================================================================================-->
     <!--===================== == == == == == ==  F O O T E R  == == == == == == == =============================-->
     <!--======================================================================================================-->

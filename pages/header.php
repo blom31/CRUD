@@ -32,9 +32,9 @@ session_start(); #inicializamos variables de sesion
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container navegacion">
                 <a class="navbar-brand fst-italic text-white" href="index_Administrador.php">
-                <h3>Mi Portfolio</h3>
+                <h3>Olga Betancourt</h3>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menue"
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menue"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,8 +43,13 @@ session_start(); #inicializamos variables de sesion
                         <li class="nav-item fs-5">
                             <a class="nav-link active text-white border-end mx-3 " href="index_Administrador.php">Proyectos</a>
                         </li>
-                        <li class="nav-item fs-5">
-                            <a class="nav-link text-white border-end mx-3" href="galeria.php">A  B  M</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">A B M</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="agregar.php">Agregar</a></li>
+                                    <li><a class="dropdown-item" href="borrar.php">Borrar</a></li>
+                                    <li><a class="dropdown-item" href="modificar.php">Modificar</a></li>
+                                </ul>
                         </li>
                         <li class="nav-item fs-5">
                             <a class="nav-link text-white" href="logout.php">Cerrar Sesión: <span><?php echo $_SESSION['usuario']; ?></span></a>
