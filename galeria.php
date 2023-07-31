@@ -38,7 +38,7 @@ move_uploaded_file($imagen_temporal,"assets/".$imagen);
 
    if(isset($_GET['modificar'])){
         $id = $_GET['modificar'];
-        header("Location:modificar.php?modificar=".$id);
+        header("Location:modificar.php?modificar=".$id); 
         die();
     }
  } 

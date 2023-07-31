@@ -26,10 +26,7 @@
 ?> 
 <style>
         .carga{
-            background-color: rgba(22, 1, 43, 0.281);
-        }
-        .tabla{
-            background-color: rgb(63, 8, 114);
+            background-color: rgba(22, 1, 43, 0.712);
         }
     </style>
 <body class="text-white">
@@ -53,8 +50,8 @@
             Edición de Proyectos
        </div>
         <div class="row d-flex justify-content-center">
-            <div class="table-responsive">
-                <table class="table text-white tabla">
+        <div class="table-responsive">
+                <table class="carga table text-white "> 
                     <thead>
                         <tr>
                             <th>Nombre</th>

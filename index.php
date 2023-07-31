@@ -2,6 +2,9 @@
 <?php $conexion = new conexion(); /*se establece la conexion a la base de datos*/
 $proyectos = $conexion->consultar("SELECT * FROM `proyectos` ORDER BY id DESC LIMIT 4");
 ?>
+<?php #esta conexión es para mostrar un listado de todos los proyectos 
+$proyectos_anteriores = $conexion->consultar("SELECT * FROM `proyectos` ORDER BY id");
+?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST["nombre"];
@@ -70,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             ?>  
                                     <div class="row col-sm-12 col-md-6">
                                         <div class="" style="width: 35rem;">
-                                        <div class="row my-1 border-dark  bg-gradient">
+                                        <div class="row my-1 bg-gradient">
                                             <div class="col-md-5">
                                             <img src="./assets/<?php echo $proyecto['imagen'];?>" class="card-img-top" alt="...">
                                             </div>
@@ -91,20 +94,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </div>
-        <section class="d-flex justify-content-center ">
-            <div class="row col-lg-3 bg-gradient"style="width: 30rem;">
-                <h4>Contáctame</h4> 
-                    <form action="#" method="post" id="formulario">
-                        <div class="col">
-                            <input type="text" name="nombre" id="nombre" class="form-control my-1" placeholder="Nombre" required>
-                            <input type="text" name="asunto" id="consulta" class="form-control my-1" placeholder="Asunto" required>
-                            <textarea name="mensaje" id="mensaje" class="form-control" rows="3" placeholder="Escribe tu consulta" maxlength="2500" required></textarea>
-                        </div> 
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary my-1"required>Enviar</button>  
-                        </div>
-                    </form>
+        <section class="container fluid d-flex justify-content-between my-2">
+            <div class="container fluid row d-flex justify-content-center">
+                <div class="col col-sm-12 col-md-9">
+                    <div class="row col-lg-3 bg-gradient"style="width: 30rem;">
+                        <h4>Contáctame</h4> 
+                        <form action="#" method="post" id="formulario">
+                            <div class="col">
+                                <input type="text" name="nombre" id="nombre" class="form-control my-1" placeholder="Nombre" required>
+                                <input type="text" name="asunto" id="consulta" class="form-control my-1" placeholder="Asunto" required>
+                                <textarea name="mensaje" id="mensaje" class="form-control" rows="3" placeholder="Escribe tu consulta" maxlength="2500" required></textarea>
+                            </div> 
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary my-1"required>Enviar</button>  
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col col-sm-12 col-md-3 bg-gradient scroll">
+                    <h4>Proyectos Anteriores</h4>
+                    <ul class="nav flex-column ">
+                        <?php 
+                        foreach($proyectos_anteriores as $proyecto){
+                            ?> 
+                        <h6 class="card-title"><?php echo $proyecto['nombre'];?></h6>    
+                        <li class="nav-item">
+                            <a href="<?php echo $proyecto['enlace'];?>"target="_blank">Visitar Sitio Web</a>
+                        </li>
+                        <?php 
+                            } 
+                        ?>
+                    </ul>          
+                </div>
             </div>
+           
         </section>
         
         </main>
@@ -113,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!--===================== == == == == == == F O O T E R == == == == == == == =============================-->
         <!--======================================================================================================-->
         <footer>
-            <div >
+            <div>
                 <ul class="nav justify-content-center">
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">About me</a>

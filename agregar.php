@@ -16,32 +16,7 @@ move_uploaded_file($imagen_temporal,"assets/".$imagen);
      header("Location:galeria.php");
      die();
  }
- if($_GET){
-
-    #ademas de borrar de la base , tenemos que borrar la foto de la carpeta imagenes
-   if(isset($_GET['borrar'])){
-        $id = $_GET['borrar'];
-        $conexion = new conexion();
-
-        #recuperamos la imagen de la base antes de borrar 
-        $imagen = $conexion->consultar("select imagen FROM  `proyectos` where id=".$id);
-        #la borramos de la carpeta 
-        unlink("imagenes/".$imagen[0]['imagen']);
-
-        #borramos el registro de la base 
-        $sql ="DELETE FROM `proyectos` WHERE `proyectos`.`id` =".$id; 
-        $id_proyecto = $conexion->ejecutar($sql);
-         #para que no intente borrar muchas veces
-         header("Location:galeria.php");
-         die();
- }
-
-   if(isset($_GET['modificar'])){
-        $id = $_GET['modificar'];
-        header("Location:modificar.php?modificar=".$id);
-        die();
-    }
- } 
+ 
   #vamos a consultar para llenar la tabla 
   $conexion = new conexion();
   $proyectos= $conexion->consultar("SELECT * FROM `proyectos`");
@@ -84,7 +59,7 @@ move_uploaded_file($imagen_temporal,"assets/".$imagen);
                         </div>
                         <div>
                             <label for="descripcion">Agregar Descripción del Proyecto</label>
-                            <textarea required class="form-control" name="descripcion" id="descripcion" cols="10" rows="4"></textarea>
+                            <textarea required class="form-control" maxlength="115" name="descripcion" id="descripcion" cols="10" rows="4"></textarea>
                         <div>
                             <label for="enlace">Enlace del Proyecto</label>
                             <input required class="form-control mb-2" type="text" name="enlace" id="enlace">

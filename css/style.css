@@ -12,8 +12,9 @@ body{
     background:url("../assets/971.jpg");
     background-size: cover;
     background-position: center;
-    background-color: rgba(22, 1, 43, 0.281);
+    background-color: rgba(22, 1, 43, 0.712);
 }
-
-
-
+.scroll{
+    max-height: 100px; /* Establece la altura máxima deseada */
+    overflow-y: auto; /* Habilita el scroll vertical si el contenido supera la altura máxima */
+}
